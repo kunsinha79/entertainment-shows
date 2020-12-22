@@ -11,8 +11,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 
-import { RatingModule } from 'ng-starrating';
-
 import { ShowSearchComponent } from './show-search/show-search.component';
 import { ShowListComponent } from './show-list/show-list.component';
 import { ShowDetailComponent } from './show-detail/show-detail.component';
@@ -40,7 +38,6 @@ import { ShowMoreListComponent } from './show-more-list/show-more-list.component
     MatIconModule,
     MatCardModule,
     HttpClientModule,
-    RatingModule,
     FormsModule
   ],
   providers: [],
