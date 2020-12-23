@@ -11,6 +11,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 2. Check availibility of node and angular cli in the system 
 3. npm i
 4. ng serve --open
+5. ng test
 
 # API endpoint used
 1. http://api.tvmaze.com/search/shows?q=
