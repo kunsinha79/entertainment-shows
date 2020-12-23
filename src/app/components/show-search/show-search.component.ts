@@ -6,8 +6,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class ShowSearchComponent{
 
-  @Output() searchCriteria = new EventEmitter<String>();
-  searchTerm: String | undefined;
+  @Output() searchCriteria = new EventEmitter<string>();
+  searchTerm: string | undefined;
 
 
   search(): void {

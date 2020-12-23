@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { ShowSearchComponent } from './components/show-search/show-search.component';
 import { ShowListComponent } from './components/show-list/show-list.component';
@@ -38,7 +39,8 @@ import { ShowMoreListComponent } from './components/show-more-list/show-more-lis
     MatIconModule,
     MatCardModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

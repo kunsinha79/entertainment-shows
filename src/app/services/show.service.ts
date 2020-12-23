@@ -12,7 +12,7 @@ export class ShowService {
 
   API_URL: string = 'http://api.tvmaze.com';
 
-  genres: Array<string> = ['Adventure', 'Comedy', 'Crime', 'Family', 'Children', 'Adult', 'DIY', 'Action', 'Horror'];
+  genres: Array<string> = ['Adventure', 'Comedy', 'Crime', 'Family', 'Children', 'Adult', 'DIY', 'Action', 'Horror', 'Drama'];
   
   categorizedShow: Array<iClassifiedList> = [];
 
@@ -32,7 +32,7 @@ export class ShowService {
     );
   }
 
-  searchShows(data: String): Observable<iClassifiedList[]> {
+  searchShows(data: string): Observable<iClassifiedList[]> {
     return this.http.get<iShowSearch[]>(`${this.API_URL}/search/shows?q=${data}`)
     .pipe(
       map((res: iShowSearch[]) => {
@@ -44,7 +44,7 @@ export class ShowService {
     );
   }
 
-  getShowById(showId: Number): Observable<iShowDetails> {
+  getShowById(showId: number): Observable<iShowDetails> {
     return this.http.get<iShowDetails>(`${this.API_URL}/shows/${showId}`)
     .pipe(
       map((res: iShowDetails) => res),

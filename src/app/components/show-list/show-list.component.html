@@ -1,7 +1,8 @@
            
-<div *ngIf="showCategorizedList && showCategorizedList.length > 0">
+<div *ngIf="!isError">
     <app-show-search (searchCriteria)="search($event)"></app-show-search>
-
+</div>
+<div *ngIf="!isLoading && !isError">
     <div *ngFor="let genres of showCategorizedList">
         <div *ngIf="genres.shows.length>0" >
             <div class="row d-flex justify-content-md-start">
@@ -34,6 +35,9 @@
         </div>                 
     </div>    
 </div>
-<div *ngIf="showCategorizedList.length <= 0" class="row d-flex justify-content-md-around p-5">
+<div *ngIf="isError" class="row d-flex justify-content-md-around p-5">
     <app-show-error></app-show-error>
+</div>
+<div *ngIf="isLoading" class="row d-flex justify-content-md-around p-5">
+    <mat-spinner></mat-spinner>
 </div>
