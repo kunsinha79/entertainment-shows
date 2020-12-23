@@ -1,10 +1,10 @@
 import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 
 import { ShowListComponent } from './show-list.component';
-import { ShowService } from '../show.service';
+import { ShowService } from '../../services/show.service';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { iClassifiedList } from '../interfaces/showList';
+import { iClassifiedList } from '../../interfaces/showList';
 import { Observable, of } from 'rxjs';
 import { showMock } from 'src/mocks/show.mock';
 import { DebugElement } from '@angular/core';

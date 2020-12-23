@@ -3,29 +3,29 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { showMock } from 'src/mocks/show.mock';
-import { iClassifiedList } from '../interfaces/showList';
-import { ShowService } from '../show.service';
+import { showDetailMock } from 'src/mocks/show.mock';
+import { iShowDetails } from '../../interfaces/showList';
+import { ShowService } from '../../services/show.service';
 
-import { ShowMoreListComponent } from './show-more-list.component';
+import { ShowDetailComponent } from './show-detail.component';
 
-describe('ShowMoreListComponent', () => {
-  let component: ShowMoreListComponent;
-  let fixture: ComponentFixture<ShowMoreListComponent>;
+describe('ShowDetailComponent', () => {
+  let component: ShowDetailComponent;
+  let fixture: ComponentFixture<ShowDetailComponent>;
   let service: ShowService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       
       imports: [HttpClientTestingModule],
-      declarations: [ ShowMoreListComponent ],
+      declarations: [ ShowDetailComponent ],
       providers: [ShowService, HttpClient, 
         {
         provide: ActivatedRoute,
         useValue: {
           snapshot: {
             paramMap: {
-              get: () => 'drama',
+              get: () => 1,
             },
           },
         },
@@ -36,11 +36,11 @@ describe('ShowMoreListComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ShowMoreListComponent);
+    fixture = TestBed.createComponent(ShowDetailComponent);
     component = fixture.componentInstance;
     service = TestBed.inject(ShowService);
-    spyOn(service, 'getShowList').and.callFake(
-      (): Observable<Array<iClassifiedList>> => of(showMock)
+    spyOn(service, 'getShowById').and.callFake(
+      (): Observable<iShowDetails> => of(showDetailMock)
     );
     fixture.detectChanges();
   });
@@ -49,19 +49,19 @@ describe('ShowMoreListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call getShowList', () => {
+  it('should call getShowById', () => {
     component.ngOnInit();
-    expect(service.getShowList).toHaveBeenCalled();
-    expect(component.showCategorizedList).toEqual(showMock);
+    expect(service.getShowById).toHaveBeenCalledWith(1);
+    expect(component.showDetails).toBe(showDetailMock);
   });
 
   it('should display data based on response', fakeAsync(() => {
     fixture.detectChanges();
     const bannerElement: HTMLElement = fixture.nativeElement;
-    const dataColumns = bannerElement.querySelectorAll('mat-card');
-    expect(dataColumns.length).toBe(1);
+    const dataColumns = bannerElement.querySelectorAll('.col-md-4');
+    expect(dataColumns.length).toBe(2);
 
-    const paraColumns = bannerElement.querySelectorAll('h2');
-    expect(paraColumns.length).toBe(1);
+    const paraColumns = bannerElement.querySelectorAll('p');
+    expect(paraColumns.length).toBe(6);
   }));
 });

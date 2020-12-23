@@ -1,6 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ShowService } from '../show.service';
+import { ShowService } from '../../services/show.service';
 
 import { ShowSearchComponent } from './show-search.component';
 

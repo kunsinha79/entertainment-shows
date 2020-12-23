@@ -34,6 +34,6 @@
         </div>                 
     </div>    
 </div>
-<div *ngIf="!showCategorizedList" class="row d-flex justify-content-md-around p-5">
+<div *ngIf="showCategorizedList.length <= 0" class="row d-flex justify-content-md-around p-5">
     <app-show-error></app-show-error>
 </div>

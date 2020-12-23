@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { iShowDetails } from '../interfaces/showList';
-import { ShowService } from '../show.service';
+import { iShowDetails } from '../../interfaces/showList';
+import { ShowService } from '../../services/show.service';
 
 
 

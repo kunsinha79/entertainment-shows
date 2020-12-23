@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { ShowService } from './show.service';
 import { of } from 'rxjs';
-import { iClassifiedList, iShowDetails, iShowList } from './interfaces/showList';
+import { iClassifiedList, iShowDetails, iShowList } from '../interfaces/showList';
 import { showDetailMock, showMock } from 'src/mocks/show.mock';
 
 describe('ShowService', () => {

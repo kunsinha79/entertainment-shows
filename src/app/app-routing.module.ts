@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ShowDetailComponent } from './show-detail/show-detail.component';
-import { ShowErrorComponent } from './show-error/show-error.component';
-import { ShowListComponent } from './show-list/show-list.component';
-import { ShowMoreListComponent } from './show-more-list/show-more-list.component';
+import { ShowDetailComponent } from './components/show-detail/show-detail.component';
+import { ShowErrorComponent } from './components/show-error/show-error.component';
+import { ShowListComponent } from './components/show-list/show-list.component';
+import { ShowMoreListComponent } from './components/show-more-list/show-more-list.component';
 
 const routes: Routes = [
   { path: 'showList', component: ShowListComponent },

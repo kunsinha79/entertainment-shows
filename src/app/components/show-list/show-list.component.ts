@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { iClassifiedList, iShowList, iShowSearch } from '../interfaces/showList';
-import { ShowService } from '../show.service';
+import { iClassifiedList, iShowList, iShowSearch } from '../../interfaces/showList';
+import { ShowService } from '../../services/show.service';
 
 @Component({
   selector: 'app-show-list',
@@ -10,7 +10,7 @@ import { ShowService } from '../show.service';
 export class ShowListComponent implements OnInit {
 
   showList: Array<iShowList> = [];
-  showCategorizedList: Array<iClassifiedList>|undefined = [];
+  showCategorizedList: Array<iClassifiedList> = [];
 
   constructor(
     private showService: ShowService
@@ -24,7 +24,7 @@ export class ShowListComponent implements OnInit {
     if (data) {
       this.showService.searchShows(data).subscribe(
         (res) => this.showCategorizedList = res,
-        () => this.showCategorizedList = undefined
+        () => this.showCategorizedList = []
       );
     } else this.getAllShows();    
   }
@@ -32,7 +32,7 @@ export class ShowListComponent implements OnInit {
   getAllShows(): void {
     this.showService.getShowList().subscribe(
       res => this.showCategorizedList = res,
-      () => this.showCategorizedList = undefined
+      () => this.showCategorizedList = []
     );
   }
 }

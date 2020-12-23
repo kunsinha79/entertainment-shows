@@ -11,12 +11,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 
-import { ShowSearchComponent } from './show-search/show-search.component';
-import { ShowListComponent } from './show-list/show-list.component';
-import { ShowDetailComponent } from './show-detail/show-detail.component';
+import { ShowSearchComponent } from './components/show-search/show-search.component';
+import { ShowListComponent } from './components/show-list/show-list.component';
+import { ShowDetailComponent } from './components/show-detail/show-detail.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ShowErrorComponent } from './show-error/show-error.component';
-import { ShowMoreListComponent } from './show-more-list/show-more-list.component';
+import { ShowErrorComponent } from './components/show-error/show-error.component';
+import { ShowMoreListComponent } from './components/show-more-list/show-more-list.component';
 
 
 @NgModule({

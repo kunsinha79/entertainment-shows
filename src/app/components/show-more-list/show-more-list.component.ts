@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { iClassifiedList } from '../interfaces/showList';
-import { ShowService } from '../show.service';
+import { iClassifiedList } from '../../interfaces/showList';
+import { ShowService } from '../../services/show.service';
 
 @Component({
   selector: 'app-show-more-list',
