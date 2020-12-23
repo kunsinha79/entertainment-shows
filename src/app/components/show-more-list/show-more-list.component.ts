@@ -17,6 +17,9 @@ export class ShowMoreListComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+  /**
+   * Method to extract genre from route param and call get show list
+   */
   ngOnInit(): void {
     const genre = this.route.snapshot.paramMap.get('genre');
     this.showService.getShowList().subscribe(

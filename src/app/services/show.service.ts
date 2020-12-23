@@ -18,6 +18,11 @@ export class ShowService {
 
   constructor(private http: HttpClient) { }
 
+ /**
+   * Method to fetch list of all shows
+   * @param keyword 
+   * @returns Object list of all shows categorized by genres
+   */
   getShowList(): Observable<iClassifiedList[]> {
     return this.http.get<iShowList[]>(`${this.API_URL}/shows`)
     .pipe(
@@ -32,8 +37,13 @@ export class ShowService {
     );
   }
 
-  searchShows(data: string): Observable<iClassifiedList[]> {
-    return this.http.get<iShowSearch[]>(`${this.API_URL}/search/shows?q=${data}`)
+  /**
+   * Method to fetch list of all shows searched by keyword
+   * @param keyword 
+   * @returns Object containing list of shows
+   */
+  searchShows(keyword: string): Observable<iClassifiedList[]> {
+    return this.http.get<iShowSearch[]>(`${this.API_URL}/search/shows?q=${keyword}`)
     .pipe(
       map((res: iShowSearch[]) => {
         return <iClassifiedList[]>this.categorizeList(res.map(r=> r.show));
@@ -44,6 +54,11 @@ export class ShowService {
     );
   }
 
+  /**
+   * Method to return show details fetched by showId
+   * @param showId 
+   * @returns Object containing particulars of show
+   */
   getShowById(showId: number): Observable<iShowDetails> {
     return this.http.get<iShowDetails>(`${this.API_URL}/shows/${showId}`)
     .pipe(
@@ -54,6 +69,11 @@ export class ShowService {
     );
   }
 
+  /**
+   * Method to categorize list based on genres
+   * @param showList 
+   * @returns Object containing categorized shows based on genres
+   */
   categorizeList( showList: Array<iShowList>): Array<iClassifiedList> {
     this.categorizedShow = [];
 

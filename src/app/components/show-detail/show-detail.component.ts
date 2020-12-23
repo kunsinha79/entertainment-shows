@@ -16,6 +16,9 @@ export class ShowDetailComponent implements OnInit {
 
   constructor( private route: ActivatedRoute, private showService: ShowService) { }
 
+  /**
+   * Lifecycle method to get id from routeparam and fetch show details by Id
+   */
   ngOnInit(): void {
     this.id = parseInt(this.route.snapshot.paramMap.get('id') || '0', 10);
     

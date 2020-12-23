@@ -22,10 +22,14 @@ export class ShowListComponent implements OnInit {
     this.getAllShows();
   }
 
-  search(data: string): void {
-    if (data) {
+  /**
+   * Event handler for fetching list of shows based on keyword
+   * @param data 
+   */
+  search(keyword: string): void {
+    if (keyword) {
       this.isLoading = true;
-      this.showService.searchShows(data).subscribe(
+      this.showService.searchShows(keyword).subscribe(
         (res) => {
           this.setList(res);
         },
@@ -34,6 +38,9 @@ export class ShowListComponent implements OnInit {
     } else this.getAllShows();    
   }
 
+  /**
+   * Method to fetch list of all shows
+   */
   getAllShows(): void {
     this.isLoading = true;
     this.showService.getShowList().subscribe(
