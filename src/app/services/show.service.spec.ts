@@ -25,7 +25,9 @@ describe('ShowService', () => {
   });
 
   it('should get the show list', () => {
-    spyOn(http, 'get').and.returnValue(of(showMock))
+    spyOn(http, 'get').and.returnValue(of(showMock));
+    spyOn(service, 'categorizeList').and.returnValue(showMock);
+    
     service.getShowList().subscribe((response: iClassifiedList[]) => {
       expect(response).toEqual(showMock);
       expect(http.get).toHaveBeenCalled()
@@ -33,9 +35,10 @@ describe('ShowService', () => {
   });
 
   it('should get the searched show list', () => {
-    spyOn(http, 'get').and.returnValue(of(showMock))
+    spyOn(http, 'get').and.returnValue(of(showMock));
+    spyOn(service, 'categorizeList').and.returnValue(showMock);
+
     service.searchShows('drama').subscribe((response: iClassifiedList[]) => {
-      expect(response).toEqual(showMock);
       expect(http.get).toHaveBeenCalled()
     })
   })

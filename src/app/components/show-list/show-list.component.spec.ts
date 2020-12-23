@@ -10,6 +10,7 @@ import { showMock } from 'src/mocks/show.mock';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { ShowSearchComponent } from '../show-search/show-search.component';
+import { ShowErrorComponent } from '../show-error/show-error.component';
 
 describe('ShowListComponent', () => {
   let component: ShowListComponent;

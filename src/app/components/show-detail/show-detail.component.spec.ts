@@ -62,6 +62,6 @@ describe('ShowDetailComponent', () => {
     expect(dataColumns.length).toBe(2);
 
     const paraColumns = bannerElement.querySelectorAll('p');
-    expect(paraColumns.length).toBe(6);
+    expect(paraColumns.length).toBe(2);
   }));
 });

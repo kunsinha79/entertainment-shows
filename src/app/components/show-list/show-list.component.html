@@ -12,24 +12,27 @@
                     </h2>
                 </div>    
             </div>
-            <div class="row d-flex justify-content-md-start border-shade">
-                <div *ngFor="let show of genres.shows; index as i" class="col-md-2 mt-md-1 mb-md-0 mt-sm-1 mb-sm-0">
-                    <mat-card *ngIf="i<=4">    
+            <div class="row d-flex justify-content-md-start">
+                <div *ngFor="let show of genres.shows; index as i" class="col-md-3">
+                    <mat-card routerLink="/showDetails/{{ show?.id }}" *ngIf="i<=3" class="mt-1">    
                         <img mat-card-image src="{{show?.image?.medium}}" alt="Photo of {{show?.name}}">
                         <mat-card-content>
-                            <span>
-                                <b>{{show?.name}}</b>
-                            </span>
+                            <h3>{{show?.name}}</h3>
                         </mat-card-content>
-                        <mat-card-actions class="background-shade">   
-                            <mat-icon>star</mat-icon> <span>{{show?.rating?.average}}</span>
-                            <button mat-button  routerLink="/showDetails/{{ show?.id }}">Details</button>
+                        <mat-card-actions class="row d-flex align-items-md-baseline background-shade">   
+                            <div class="col-6">
+                                <span>&#9734;</span>
+                                <span>{{show?.rating?.average}}</span>
+                            </div>
+                            <div class="col-6">    
+                                <button mat-button routerLink="/showDetails/{{ show?.id }}">Details</button>
+                            </div>
                         </mat-card-actions>
                     </mat-card> 
                    
                 </div>    
             </div>
-            <div *ngIf="genres.shows.length>4" class="row d-flex justify-content-md-end justify-content-sm-end">
+            <div *ngIf="genres.shows.length>4" class="row d-flex justify-content-end">
                 <button mat-button routerLink="/showMoreList/{{genres.genre}}">View More..</button>
             </div> 
         </div>                 

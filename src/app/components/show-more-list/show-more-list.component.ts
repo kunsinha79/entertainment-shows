@@ -11,6 +11,8 @@ import { ShowService } from '../../services/show.service';
 export class ShowMoreListComponent implements OnInit {
 
   showCategorizedList: Array<iClassifiedList>|undefined = [];
+  isLoading: Boolean = false;
+  isError: Boolean = false;
 
   constructor(
     private showService: ShowService,
@@ -21,10 +23,19 @@ export class ShowMoreListComponent implements OnInit {
    * Method to extract genre from route param and call get show list
    */
   ngOnInit(): void {
+    this.isLoading = true;
     const genre = this.route.snapshot.paramMap.get('genre');
     this.showService.getShowList().subscribe(
-      res => this.showCategorizedList = res.filter( r => r.genre === genre),
-      () => this.showCategorizedList = undefined
+      res => {
+        this.showCategorizedList = res.filter( r => r.genre === genre);
+        this.isLoading = false;
+        this.isError = false;
+      },
+      () => {
+        this.showCategorizedList = [];
+        this.isLoading = false;
+        this.isError = true;
+      }
     );
   }
 }
