@@ -36,8 +36,7 @@ export class ShowService {
     return this.http.get<iShowSearch[]>(`${this.API_URL}/search/shows?q=${data}`)
     .pipe(
       map((res: iShowSearch[]) => {
-        const shows = res.map(r=> r.show);
-        return <iClassifiedList[]>this.categorizeList(shows);
+        return <iClassifiedList[]>this.categorizeList(res.map(r=> r.show));
       }),
       catchError( err => 
         throwError(`An error has occurred ${err}`)
