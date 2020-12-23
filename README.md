@@ -7,8 +7,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 2. Angular-cli (npm install -g @angular/cli)
 
 # Setting up
-1. Pull the repository
-2. Check availibility of node and angular cli in the system 
+1. Clone the repository https://github.com/kunsinha79/entertainment-shows.git
+2. cd entertainment-shows 
 3. npm i
 4. ng serve --open
 5. ng test
